@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautiful Hotel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #f8b400;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        header nav {
+            margin-top: 10px;
+        }
+        header nav a {
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #333;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        header nav a:hover {
+            background-color: #555;
+        }
+        .container {
+            padding: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .features, .footer {
+            margin-top: 40px;
+        }
+        .features h2, .footer h2 {
+            text-align: center;
+            color: #f8b400;
+        }
+        .features ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .features ul li {
+            background: #eee;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .footer {
+            background-color: #f8b400;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .btn-register, .btn-logout {
+            display: inline-block;
+            padding: 10px 20px;
+            color: white;
+            background-color: #f8b400;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        .btn-register:hover, .btn-logout:hover {
+            background-color: #e09500;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Beautiful Hotel</h1>
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            {% if username %}
+                <a class="btn-logout" href="{{ url_for('logout') }}">Logout ({{ username }})</a>
+            {% else %}
+                <a class="btn-register" href="{{ url_for('register') }}">Register</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <div class="container">
+        <section class="gallery">
+            <h2>Our Gallery</h2>
+            <img src="{{ url_for('static', filename='images/hotel1.jpg') }}" alt="Hotel Exterior">
+            <img src="{{ url_for('static', filename='images/hotel2.jpg') }}" alt="Hotel Lobby">
+            <img src="{{ url_for('static', filename='images/hotel3.jpg') }}" alt="Hotel Room">
+        </section>
+
+        <section class="features">
+            <h2>Features</h2>
+            <ul>
+                <li>Luxurious rooms with beautiful views</li>
+                <li>World-class dining experiences</li>
+                <li>State-of-the-art gym and spa</li>
+                <li>Free Wi-Fi and business center</li>
+                <li>Convenient location near popular attractions</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <h2>Contact Us</h2>
+        <p>Email: info@beautifulhotel.com | Phone: 123-456-7890</p>
+        <p>Follow us on social media</p>
+        <p>
+            <a href="#" style="color: white; text-decoration: none;">Facebook</a> |
+            <a href="#" style="color: white; text-decoration: none;">Instagram</a> |
+            <a href="#" style="color: white; text-decoration: none;">Twitter</a>
+        </p>
+    </footer>
+</body>
+</html>
